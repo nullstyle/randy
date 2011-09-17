@@ -12,13 +12,14 @@ Gem::Specification.new do |s|
   s.description = %q{TODO: Write a gem description}
 
   s.rubyforge_project = "randy"
-
+  s.required_ruby_version = '>= 1.9.2'
+  
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
   # specify any dependencies here; for example:
-  # s.add_development_dependency "rspec"
+  s.add_development_dependency "rspec", ">= 2.6.0"
   s.add_runtime_dependency "activesupport", ">= 3.1.0"
 end
