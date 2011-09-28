@@ -1,7 +1,7 @@
 module Randy::Distributions
   class Base
     def next
-      #implement in subclass
+      raise "implement in subclass"
     end
   end
 end
