@@ -1,0 +1,2 @@
+- Remove rng from probability distributions, should pass the rng in when calling "next"
+- maybe rename "next" to "get"
