@@ -1,4 +1,4 @@
-module Randy::Prng
+module Randy::Rng
   extend ActiveSupport::Autoload
   
   autoload :Lcg

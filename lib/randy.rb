@@ -6,5 +6,5 @@ module Randy
   autoload :Generators
   autoload :Distributions
   autoload :Util
-  autoload :Prng  
+  autoload :Rng  
 end

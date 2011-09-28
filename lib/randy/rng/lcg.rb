@@ -1,4 +1,4 @@
-module Randy::Prng
+module Randy::Rng
   ##
   # A implementation of Java's System.Random LCG
   class Lcg
