@@ -6,18 +6,18 @@ module Randy::Distributions
       when Range ;
         @sample_space = sample_space
         @size = @sample_space.end - @sample_space.begin
-        @next = lambda{ rand(@size) + @sample_space.begin }
+        @next = lambda{|rng| rng.next(@size) + @sample_space.begin }
       when Array ; 
         @sample_space = sample_space
         @size = sample_space.size
-        @next = lambda{ @sample_space[rand(@size)] }
+        @next = lambda{|rng| @sample_space[rng.next(@size)] }
       else
         raise ArgumentError, "Invalid sample space: provide an Array or Range"
       end
     end
   
-    def next
-      @next.call
+    def next(rng)
+      @next.call rng
     end
   end
 end

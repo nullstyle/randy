@@ -20,8 +20,8 @@ module Randy::Distributions
       end
     end
 
-    def next
-      cutoff = rand
+    def next(rng)
+      cutoff = rng.next
       @sorted_map.find{|kv| cutoff < kv.last}.first
     end
     

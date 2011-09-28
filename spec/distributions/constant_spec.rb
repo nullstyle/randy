@@ -5,9 +5,9 @@ describe Randy::Distributions::Constant do
   
   describe "#next" do    
     it "should always return the value provided at creation" do
-      subject.next.should == 10
-      subject.next.should == 10
-      subject.next.should == 10
+      subject.next(@lcg).should == 10
+      subject.next(@lcg).should == 10
+      subject.next(@lcg).should == 10
     end
   end
 end

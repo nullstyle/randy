@@ -1,6 +1,6 @@
 module Randy::Distributions
   class Base
-    def next
+    def next(rng)
       raise "implement in subclass"
     end
   end

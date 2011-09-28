@@ -7,7 +7,7 @@ describe Randy::Distributions::Uniform, "created with a Range" do
   describe "#next" do    
     it "should never return a value outside the range" do
       100.times do
-        subject.next.should be_between(1,10)
+        subject.next(@lcg).should be_between(1,10)
       end
     end
   end
@@ -20,7 +20,7 @@ describe Randy::Distributions::Uniform, "created with an Array" do
   describe "#next" do    
     it "should never return a value outside the range" do
       100.times do
-        subject.next.should satisfy{|i| [:foo, :bar, :baz].include?(i)}
+        subject.next(@lcg).should satisfy{|i| [:foo, :bar, :baz].include?(i)}
       end
     end
   end

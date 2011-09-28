@@ -6,7 +6,7 @@ module Randy::Distributions
       @constant = constant
     end
   
-    def next
+    def next(rng)
       @constant
     end
   end

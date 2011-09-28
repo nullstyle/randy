@@ -6,7 +6,7 @@ module Randy::Generators
     end
 
     def get
-      @distribution.next
+      @distribution.next(@rng)
     end
   end
 end
