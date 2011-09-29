@@ -1,30 +1,46 @@
 module Randy::Rng
   ##
   # A implementation of Java's System.Random LCG
-  class Lcg
+  class Lcg < Base
     include Randy::Util::FixedWidthIntegers
-    
-    attr_accessor :seed
-    
-    SEED_XOR = 0x5DEECE66D
+        
+    SEED_XOR   = 0x5DEECE66D
+    ADDEND     = 0xB
     BITMASK_48 = (1 << 48) - 1
-    BITMASK_32 = (1 << 32) - 1
 
-    def initialize(seed=nil)
-      seed ||= (Time.now.to_f * 1000).to_i
-      self.seed = seed 
+    def initialize(*args)
+      super *args
+      @state = (self.seed ^ SEED_XOR) & BITMASK_48
+      @bitmasks ||= {}
     end
 
-    def seed=(val)
-      @seed = (val ^ SEED_XOR) & BITMASK_48
-    end
-
-    def next(max=nil)
-      @seed = (@seed * SEED_XOR + 0xB) & BITMASK_48;
-      raw = (@seed >> 16) & BITMASK_32
-      result = SFWI.new(raw, 32).to_i
+    def next_i
+      next_bits(32).to_i
       
-      max ? result % max : result
+    end
+    
+    def next_l
+      result = SFWI.new(next_bits(32).to_i, 64) << 32
+      result += next_bits(32).to_i
+      result.to_i
+    end
+
+    def next_f
+      result = SFWI.new(next_bits(26).to_i, 64) << 27
+      result += next_bits(27).to_i
+      result.to_i / bitmask(53).to_f
+    end
+
+
+    private
+    def next_bits(bits)
+      @state = (@state * SEED_XOR + ADDEND) & BITMASK_48;
+      raw = (@state >> (48 - bits)) & bitmask(bits)
+      SFWI.new(raw, bits)
+    end
+
+    def bitmask(bits)
+      @bitmasks[bits] || (1 << bits) - 1
     end
   end
 end

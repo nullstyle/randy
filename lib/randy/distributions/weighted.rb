@@ -1,3 +1,5 @@
+require 'active_support/core_ext/enumerable'
+
 module Randy::Distributions
   class Weighted < Base
 
@@ -21,7 +23,7 @@ module Randy::Distributions
     end
 
     def next(rng)
-      cutoff = rng.next
+      cutoff = rng.next_f
       @sorted_map.find{|kv| cutoff < kv.last}.first
     end
     
