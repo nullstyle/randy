@@ -28,7 +28,7 @@ module Randy::Rng
     def next_f
       result = SFWI.new(next_bits(26).to_i, 64) << 27
       result += next_bits(27).to_i
-      result.to_i / bitmask(53).to_f
+      (result.to_i / bitmask(53).to_f) + 0.5
     end
 
 
