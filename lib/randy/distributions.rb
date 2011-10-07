@@ -5,5 +5,6 @@ module Randy::Distributions
   autoload :Constant
   autoload :Uniform
   autoload :Weighted
+  autoload :Normal
   
 end
