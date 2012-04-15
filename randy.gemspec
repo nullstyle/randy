@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
 
   # specify any dependencies here; for example:
   s.add_development_dependency "rake"
-  s.add_development_dependency "rspec", ">= 2.6.0"
+  s.add_development_dependency "rspec", ">= 2.9.0"
   s.add_development_dependency "ZenTest"
   s.add_runtime_dependency "activesupport", ">= 3.1.0"
 end
