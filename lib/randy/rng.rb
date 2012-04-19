@@ -4,4 +4,5 @@ module Randy::Rng
   autoload :Base
   autoload :Lcg
   autoload :Dummy
+  autoload :System
 end
