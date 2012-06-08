@@ -9,10 +9,10 @@ Gem::Specification.new do |s|
   s.email       = ["nullstyle@gmail.com"]
   s.homepage    = ""
   s.summary     = %q{PRNG and probability distribution helpers}
-  s.description = %q{TODO: Write a gem description}
+  s.description = %q{A library to help with randomness}
 
   s.rubyforge_project = "randy"
-  s.required_ruby_version = '>= 1.9.3'
+  s.required_ruby_version = '>= 1.9.0'
   
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
