@@ -6,5 +6,6 @@ module Randy::Distributions
   autoload :Uniform
   autoload :Weighted
   autoload :Normal
+  autoload :Deck
   
 end
