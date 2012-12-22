@@ -7,5 +7,6 @@ module Randy::Distributions
   autoload :Weighted
   autoload :Normal
   autoload :Deck
+  autoload :PokerDeck
   
 end
